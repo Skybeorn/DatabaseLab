@@ -36,8 +36,8 @@ public class Demo1 {
         Demo1 db = new Demo1();
 
         /*
-* ============= JDBC INITIALIZATION ==================
-*/
+         * ============= JDBC INITIALIZATION ==================
+         */
 
         // STEP 1: Set the fully qualified name of the JDBC driver class
         // (Here we use the Microsoft driver .jar provided on Blackboard
@@ -73,8 +73,8 @@ public class Demo1 {
         }
 
         /*
-* =========== Now Use JDBC to Work With Your Database ================================
-*/
+         * =========== Now Use JDBC to Work With Your Database ================================
+         */
 
         // We'll need a statement object to execute the sql query (a statement)
         Statement stmt = null;
@@ -88,19 +88,20 @@ public class Demo1 {
 // String sql = "SELECT * FROM [dbo].[EMPLOYEE] WHERE "
 // + "HIREDATE > '1/1/1988' ORDER BY LASTNAME";
         String sql = "select * from city";
-
+        String sql1 = "DELETE FROM city WHERE CountryCode = 'ABW'";
 
         try {
             // Next use the connection object created earlier to create a statement object
             stmt = db.conn.createStatement();
+
 
             // Then use the executeQuery() method of the statement object
             // to execute the read-only query.
             // Be sure to check all the methods of the statement object in the API.
             // You would use an updateQuery() method, e.g., to insert or edit records
 // int recordsDeleted = stmt.executeUpdate(sql2);
+            stmt.executeUpdate(sql1);
             rs = stmt.executeQuery(sql);
-
 
 
             System.out.println("============================");
